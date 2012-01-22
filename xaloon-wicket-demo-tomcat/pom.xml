@@ -69,6 +69,13 @@
 			<scope>provided</scope>
 			<version>${jetty.version}</version>
 		</dependency>
+		
+		<!-- jqWicket -->
+		<dependency>
+			<groupId>com.google.code.jqwicket</groupId>
+			<artifactId>jqwicket</artifactId>
+			<version>0.8</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
