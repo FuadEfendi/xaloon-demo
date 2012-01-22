@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="message.error.key.empty">Key is not provided!</entry>
+	<entry key="message.error.activation">Could not activate your account!</entry>
+	<entry key="message.info.activated">Your account has been activated!</entry>
+	
+	<entry key="parent.org.xaloon.wicket.demo.page.CruisesPage">Travel</entry>
+	<entry key="parent.org.xaloon.wicket.plugin.admin.PluginAdministrationNoParamPage">Admin</entry>
+	<entry key="parent.org.xaloon.wicket.demo.page.ExtendedUserProfilePage">Personal</entry>
+	<entry key="parent.org.xaloon.wicket.demo.page.ContactUsPage">Contact us</entry>
+	<entry key="parent.org.xaloon.wicket.plugin.blog.page.BlogEntryListPage">Blog</entry>
+	
+	<entry key="org.xaloon.wicket.component.classifier.page.ClassifiersPage">Classifiers</entry>
+	<entry key="org.xaloon.wicket.plugin.comment.page.WaitingCommentsForApprovalPage">Comments to approve</entry>
+	<entry key="org.xaloon.wicket.plugin.admin.PluginAdministrationNoParamPage">Plugin management</entry>
+	<entry key="org.xaloon.wicket.demo.page.HotToursPage">Hot tours</entry>
+	<entry key="org.xaloon.wicket.demo.page.HotelsPage">Hotels</entry>
+	<entry key="org.xaloon.wicket.demo.page.CruisesPage">Cruises</entry>
+	<entry key="org.xaloon.wicket.plugin.blog.page.CreateBlogEntryPage">New blog entry</entry>
+	<entry key="org.xaloon.wicket.plugin.user.page.ChangePasswordPage">Change password</entry>
+	<entry key="org.xaloon.wicket.plugin.blog.page.BlogEntryListPage">Blog</entry>
+	<entry key="org.xaloon.wicket.demo.page.ContactUsPage">Contact us</entry>
+	<entry key="org.xaloon.wicket.demo.page.AboutUsPage">About us</entry>
+	<entry key="org.xaloon.wicket.demo.page.NewsPage">News</entry>
+	<entry key="org.xaloon.wicket.demo.page.IndexPage">Home</entry>
+	
+</properties>

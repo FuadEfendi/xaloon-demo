@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="title">Sign in</entry>
+	<entry key="keywords">wicket demo, xaloon components</entry>
+	<entry key="description">Sign in page for xaloon demo</entry>
+</properties>

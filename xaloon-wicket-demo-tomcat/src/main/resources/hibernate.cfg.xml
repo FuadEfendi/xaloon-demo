@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- caching -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		
+		<property name="secondLevelCacheEnabled">true</property>
+		<property name="queryCacheEnabled">true</property>
+		<property name="hibernate.generate_statistics">true</property>
+		
+		<class-cache class="org.xaloon.core.jpa.plugin.resource.model.PluginEntity" include="all" usage="read-write" />
+		<class-cache class="org.xaloon.wicket.plugin.blog.model.JpaBlogEntry" include="all" usage="read-write" />
+		<class-cache class="org.xaloon.wicket.plugin.blog.model.JpaBlogEntryTag" include="all" usage="read-write" />
+		<class-cache class="org.xaloon.core.jpa.classifier.model.JpaClassifier" include="all" usage="read-write" />
+		<class-cache class="org.xaloon.core.jpa.classifier.model.JpaClassifierItem" include="all" usage="read-write" />
+		<class-cache class="org.xaloon.core.jpa.user.model.AbstractUser" include="all" usage="read-write" />
+		<class-cache class="org.xaloon.core.jpa.storage.model.JpaFileDescriptor" include="all" usage="read-write" />
+		<class-cache class="org.xaloon.core.jpa.model.JpaKeyValue" include="all" usage="read-write" />
+		<class-cache class="org.xaloon.core.jpa.storage.model.JpaFileStorage" include="all" usage="read-write" />
+		
+		<class-cache class="org.xaloon.wicket.plugin.image.model.JpaAlbum" include="all" usage="read-write" />
+		<class-cache class="org.xaloon.wicket.plugin.image.model.JpaImageTag" include="all" usage="read-write" />
+	</session-factory>
+</hibernate-configuration>

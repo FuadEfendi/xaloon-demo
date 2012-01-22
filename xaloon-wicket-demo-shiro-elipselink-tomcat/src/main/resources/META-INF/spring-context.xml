@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-2.5.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx.xsd"
+	default-autowire="byName">	
+
+	<context:annotation-config/>
+	
+	<context:component-scan base-package="org.xaloon.wicket.demo"/>
+	<context:component-scan base-package="org.xaloon.xipw.demo"/>
+	
+	<bean id="application" class="org.xaloon.xipw.demo.XaloonDemoApplication"/>	
+	
+	<!-- SECURITY ENTITIES -->
+	<bean id="securityModelEntities" class="org.xaloon.core.jpa.spring.EntityListProvider">
+		<property name="entities">
+			<list>
+				<value>org.xaloon.core.jpa.model.JpaKeyValue</value>
+				<value>org.xaloon.core.jpa.security.model.JpaAuthority</value>	
+				<value>org.xaloon.core.jpa.security.model.JpaUserDetails</value>	
+				<value>org.xaloon.core.jpa.security.model.JpaGroup</value>	
+				<value>org.xaloon.core.jpa.security.model.JpaGroupAuthority</value>	
+				<value>org.xaloon.core.jpa.security.model.JpaGroupMembers</value>
+				<value>org.xaloon.core.jpa.security.model.JpaUserAlias</value>		
+			</list>
+		</property>
+	</bean>	
+</beans>

@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.xaloon.demo</groupId>
+	<artifactId>xaloon-wicket-demo-parent</artifactId>
+	<packaging>pom</packaging>	
+	<name>xaloon wicket demo folder</name>
+	<properties>
+		<jetty.version>7.5.0.v20110901</jetty.version>
+	</properties>
+	<modules>
+		<module>xaloon-wicket-demo-application</module>
+		<module>xaloon-wicket-demo-jboss</module>
+		<module>xaloon-wicket-demo-glassfish</module>
+		<module>xaloon-wicket-demo-shiro-elipselink-tomcat</module>
+		<module>xaloon-wicket-demo-tomcat</module>			
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>

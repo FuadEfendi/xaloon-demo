@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>org.xaloon.demo</groupId>
+		<artifactId>xaloon-wicket-demo-parent</artifactId>
+		<version>1.5.0-RC4-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>xaloon-wicket-demo-application</artifactId>
+	<packaging>jar</packaging>
+	<name>xaloon j2ee web application</name>
+	<description>
+		xaloon generic demo application including all plugins
+	</description>
+	
+	<dependencies>	
+		<!-- Xaloon -->
+		<dependency>
+			<groupId>org.xaloon.core</groupId>
+			<artifactId>xaloon-core-jpa</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xaloon.wicket</groupId>
+			<artifactId>xaloon-wicket-components</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xaloon.wicket</groupId>
+			<artifactId>xaloon-wicket-components-resources</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xaloon.plugins</groupId>
+			<artifactId>xaloon-wicket-plugin-blog</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xaloon.plugins</groupId>
+			<artifactId>xaloon-wicket-plugin-google</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xaloon.plugins</groupId>
+			<artifactId>xaloon-wicket-plugin-authentication</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- OFFLINE DEP -->
+		<dependency>
+			<groupId>javax.media</groupId>
+			<artifactId>jai-core</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.media</groupId>
+			<artifactId>jai-codec</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,75 @@
+* Core plugin registration system
+* Plugin categories
+* Custom plugin administration panel
+* Auto page mounting
+* Dynamic menu depending page mounting
+
+* Customizable plugin registry 
+* Customizable resource storage
+* Customizable string resource loader
+
+* Spring support @Inject annotation
+* Generic @Inject usage instead of Spring annotations
+* History support when using xaloon-wicket-components-spring 
+
+* Resources (*.html, *.xml) moved to separate project (xaloon-wicket-components-resources)
+* Spring related stuff moved to separate project (xaloon-wicket-components-spring)
+
+* Hierarchy menu (HierarchyMenuPanel.java)
+
+
+* Added notification listener support;
+* Added notification listener support  before saving plugin properties to JCR;
+
+* Added page factory notification listener support;
+
+* Bookmarkable pagination
+
+* Enhanced tag cloud
+
+* sitemap migrated
+* CKEditor added
+* Enhanced image upload panel
+* javaee standard security annotation support
+* rss feed ported to 1.5
+
+TODO ------------------
+* simple pojo support? like
+pluginBean = new pluginbean();
+plugin = new plugin();
+plugin.setPluginBean(pluginBean);
+registry.register(plugin);
+
+TODO
+automatic registration of plugins
+
+----------
+Built-in plugins
+* dynamic menu;
+* page history plugin;
+* addthis plugin;
+Fix:
+* comment plugin;
+* email plugin;
+* user plugin;
+* category menu plugin;
+
+Blog plugin:
+* year/month/day support in blog entry path
+* pagination of blog entry list
+* tag cloud support
+* categories support
+* list by categories
+* list by blogger
+
+* activation form
+
+REMEMBER
+* plugin panel - to redirect properly use setVisible(false) before setResponsePage();
+
+
+----------
+USER DB structure
+insert into xal_security_user values (1, now(), now(), true, true, true, true, 'c514c91e4ed341f263e458d44b3bb0a7', 'demo');
+insert into xal_security_authority values (1, now(), now(), 'BLOG_CREATOR');
+insert into xal_security_user_authorities values (1, 1);

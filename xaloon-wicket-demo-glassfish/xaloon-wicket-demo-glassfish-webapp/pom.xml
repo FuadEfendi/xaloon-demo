@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>org.xaloon.demo</groupId>
+		<artifactId>xaloon-wicket-demo-glassfish</artifactId>
+		<version>1.5.0-RC4-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>xaloon-demo-glassfish-webapp</artifactId>
+	<packaging>war</packaging>
+	<name>glassfish web application</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.xaloon.demo</groupId>
+			<artifactId>xaloon-demo-glassfish-shaded</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- Shaded dependencies -->
+		<dependency>
+			<groupId>org.xaloon.profiles</groupId>
+			<artifactId>xaloon-profiles-jee</artifactId>
+			<version>${project.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.xaloon.demo</groupId>
+			<artifactId>xaloon-wicket-demo-application</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<packagingExcludes>WEB-INF/lib/xaloon-core-*.jar,WEB-INF/lib/xaloon-wicket*.jar</packagingExcludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

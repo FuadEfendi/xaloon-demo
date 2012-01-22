@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="sports-app" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<distributable/>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:META-INF/spring-context.xml,
+			classpath*:META-INF/entitymanager.xml,
+			classpath*:META-INF/infrastructure-context.xml
+		</param-value>
+	</context-param>
+
+	<filter>
+        <filter-name>ShiroFilter</filter-name>
+        <filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
+        <init-param>
+        	<param-name>config</param-name>
+        	<param-value>
+				[main]
+				authc.loginUrl = /login
+				customMatcher = org.xaloon.core.security.shiro.XaloonCredentialsMatcher
+				externalMatcher = org.xaloon.core.security.shiro.ExternalXaloonCredentialsMatcher
+				xaloonRealm = org.xaloon.core.security.shiro.XaloonRealm
+				xaloonRealm.credentialsMatcher = $customMatcher
+		
+			 	externalRealm = org.xaloon.core.security.shiro.ExternalAuthenticationRealm
+				externalRealm.credentialsMatcher = $externalMatcher	
+				securityManager.realms = $xaloonRealm, $externalRealm
+				[filters]
+				[urls]
+				/login = authc
+ 			</param-value>
+ 		</init-param>
+    </filter>
+   
+	<filter>
+		<filter-name>xaloon</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+		<init-param>
+			<param-name>applicationFactoryClassName</param-name>
+			<param-value>org.apache.wicket.spring.SpringWebApplicationFactory</param-value>
+		</init-param>
+		<init-param>
+			<param-name>configuration</param-name>
+			<param-value>development</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+        <filter-name>ShiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+	<filter-mapping>
+		<filter-name>xaloon</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404</location>
+	</error-page>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+</web-app>

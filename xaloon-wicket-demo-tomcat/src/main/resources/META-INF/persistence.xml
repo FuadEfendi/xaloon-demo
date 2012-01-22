@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1257" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+	<persistence-unit name="default-persistence-unit">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>org.xaloon.wicket.demo.extended.JpaExtendedUser</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:." />
+			<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
+			<property name="hibernate.connection.username" value="sa" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.max_fetch_depth" value="0" />
+			
+			<property name="hibernate.generate_statistics" value="true"/>
+			
+			<property name="hibernate.ejb.cfgfile" value="/hibernate.cfg.xml" />
+            <property name="hibernate.connection.charSet" value="UTF-8"/>
+            
+            
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="security">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>org.xaloon.core.jpa.model.JpaKeyValue</class>
+		<class>org.xaloon.core.jpa.security.model.JpaAuthority</class>
+		<class>org.xaloon.core.jpa.security.model.JpaGroup</class>
+		<class>org.xaloon.core.jpa.security.model.JpaGroupAuthority</class>
+		<class>org.xaloon.core.jpa.security.model.JpaGroupMembers</class>
+		<class>org.xaloon.core.jpa.security.model.JpaUserDetails</class>	
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:." />
+			<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
+			<property name="hibernate.connection.username" value="sa" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.max_fetch_depth" value="0" />
+			
+			<property name="hibernate.cache.use_second_level_cache" value="true"/>
+      		<property name="hibernate.cache.use_query_cache" value="true"/>
+			<property name="hibernate.cache.region.factory_class" value="net.sf.ehcache.hibernate.EhCacheRegionFactory"/>
+		</properties>
+	</persistence-unit>
+</persistence>
