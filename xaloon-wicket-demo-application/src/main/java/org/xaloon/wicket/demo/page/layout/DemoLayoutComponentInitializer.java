@@ -36,6 +36,7 @@ import org.xaloon.wicket.demo.page.HotelsPage;
 import org.xaloon.wicket.demo.page.IndexPage;
 import org.xaloon.wicket.demo.panel.ChangeLocalePanel;
 import org.xaloon.wicket.plugin.addthis.panel.AddThisPanel;
+import org.xaloon.wicket.plugin.blog.page.CreateBlogEntryPage;
 import org.xaloon.wicket.plugin.google.GoogleWebMasterMarkupContainer;
 import org.xaloon.wicket.plugin.google.PlusOneSize;
 import org.xaloon.wicket.plugin.google.panel.GoogleAnalyticsPanel;
@@ -76,7 +77,7 @@ public class DemoLayoutComponentInitializer implements LayoutComponentInitialize
 
 		// Take parent of this menu item as we want to display all menu of current level
 		TreeNode<MenuItem> parentMenuTreeItem = dynamicMenuFacade.getParent(layoutWebPage.getClass());
-		if (parentMenuTreeItem == null) {
+		if (parentMenuTreeItem == null || isInIgnoreList(layoutWebPage)) {
 			layoutWebPage.add(new Label(WICKET_ID_SIDEBAR, new Model<String>("")).setVisible(false));
 			return;
 		}
@@ -89,7 +90,6 @@ public class DemoLayoutComponentInitializer implements LayoutComponentInitialize
 		}
 	}
 
-	@Override
 	public void onInitialize(LayoutWebPage layoutWebPage, Panel content) {
 		layoutWebPage.add(new HeaderPanel("header-panel"));
 		layoutWebPage.add(new DynamicMenuItemPanel("top-flat-menu", getTopLevelMenuItems(layoutWebPage)));
@@ -117,8 +117,15 @@ public class DemoLayoutComponentInitializer implements LayoutComponentInitialize
 	}
 
 	protected boolean hasSidebarMenu(LayoutWebPage layoutWebPage) {
+		if (isInIgnoreList(layoutWebPage)) {
+			return false;
+		}
 		TreeNode<MenuItem> parentMenuItem = dynamicMenuFacade.getParent(layoutWebPage.getClass());
 		return (parentMenuItem != null && parentMenuItem.getParent() != null && parentMenuItem.hasMoreThanOneChildren());
+	}
+
+	private boolean isInIgnoreList(LayoutWebPage layoutWebPage) {
+		return CreateBlogEntryPage.class.equals(layoutWebPage.getClass());
 	}
 
 }
