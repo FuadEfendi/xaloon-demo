@@ -55,7 +55,7 @@ public class DemoFacadeImpl implements DemoFacade {
 			user.setFirstName("Demo");
 			user.setLastName("Demum");
 			String activationKey = userFacade.registerUser(user, username, true, null);
-			userFacade.activate(activationKey);
+			userFacade.activate(activationKey, username);
 			
 			userFacade.assignRole(username, SecurityRoles.AUTHENTICATED_USER);
 			userFacade.assignRole(username, SecurityRoles.BLOG_CREATOR);
@@ -74,7 +74,7 @@ public class DemoFacadeImpl implements DemoFacade {
 			user.setFirstName("Simple");
 			user.setLastName("User");
 			String activationKey = userFacade.registerUser(user, username, true, null);
-			userFacade.activate(activationKey);
+			userFacade.activate(activationKey, username);
 			
 			userFacade.assignRole(username, SecurityRoles.AUTHENTICATED_USER);
 			userFacade.assignRole(username, SecurityRoles.BLOG_CREATOR);			
