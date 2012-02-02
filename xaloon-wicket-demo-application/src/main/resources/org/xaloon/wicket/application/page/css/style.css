@@ -980,10 +980,19 @@ div.row span.formw {
 }
 
 .delete-link {
-	background: url("../images/icon-delete.png") no-repeat scroll 0 0 transparent;
+	background: url("images/file_remove.png") no-repeat scroll 0 0 transparent;
 	display: block;
 	height: 50px;
 	left: 10px;
+	width: 50px;
+	position: absolute;
+}
+
+.edit-link {
+	background: url("images/file_edit.png") no-repeat scroll 0 0 transparent;
+	display: block;
+	height: 50px;
+	left: 60px;
 	width: 50px;
 	position: absolute;
 }
