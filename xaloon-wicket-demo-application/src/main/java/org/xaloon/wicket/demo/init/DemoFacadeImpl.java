@@ -12,6 +12,7 @@ import org.xaloon.core.api.user.model.User;
 import org.xaloon.core.jpa.classifier.model.JpaClassifier;
 import org.xaloon.core.jpa.classifier.model.JpaClassifierItem;
 import org.xaloon.wicket.plugin.blog.BlogPlugin;
+import org.xaloon.wicket.plugin.blog.BlogSecurityRoles;
 
 /**
  * @author vytautas.r
@@ -58,7 +59,7 @@ public class DemoFacadeImpl implements DemoFacade {
 			userFacade.activate(activationKey, username);
 			
 			userFacade.assignRole(username, SecurityRoles.AUTHENTICATED_USER);
-			userFacade.assignRole(username, SecurityRoles.BLOG_CREATOR);
+			userFacade.assignRole(username, BlogSecurityRoles.BLOG_CREATOR);
 			userFacade.assignRole(username, SecurityRoles.SYSTEM_ADMINISTRATOR);	
 			
 		}
@@ -77,7 +78,7 @@ public class DemoFacadeImpl implements DemoFacade {
 			userFacade.activate(activationKey, username);
 			
 			userFacade.assignRole(username, SecurityRoles.AUTHENTICATED_USER);
-			userFacade.assignRole(username, SecurityRoles.BLOG_CREATOR);			
+			userFacade.assignRole(username, BlogSecurityRoles.BLOG_CREATOR);			
 		}
 	}
 
