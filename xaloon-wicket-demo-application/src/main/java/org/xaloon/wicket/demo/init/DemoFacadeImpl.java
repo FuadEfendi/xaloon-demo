@@ -8,9 +8,9 @@ import javax.inject.Named;
 
 import org.xaloon.core.api.classifier.dao.ClassifierDao;
 import org.xaloon.core.api.classifier.dao.ClassifierItemDao;
-import org.xaloon.core.api.security.RoleGroupService;
+import org.xaloon.core.api.security.RoleService;
 import org.xaloon.core.api.security.SecurityAuthorities;
-import org.xaloon.core.api.security.UserDetails;
+import org.xaloon.core.api.security.model.UserDetails;
 import org.xaloon.core.api.storage.FileRepositoryFacade;
 import org.xaloon.core.api.user.UserFacade;
 import org.xaloon.core.api.user.model.User;
@@ -43,7 +43,7 @@ public class DemoFacadeImpl implements DemoFacade {
 	private UserFacade userFacade;
 	
 	@Inject
-	private RoleGroupService roleGroupService;
+	private RoleService roleService;
 	
 	/**
 	 * create initial demo data
@@ -53,6 +53,8 @@ public class DemoFacadeImpl implements DemoFacade {
 		initClassifiers();
 		initAdminUserInfo();
 		initSimpleUserInfo();
+		
+		initBloggerInfo();
 	}
 
 	private void initAdminUserInfo() {
@@ -74,7 +76,7 @@ public class DemoFacadeImpl implements DemoFacade {
 			selections.add(GallerySecurityAuthorities.ROLE_GALLERY_USER);
 			selections.add(BlogSecurityAuthorities.ROLE_BLOGGER);
 			
-			roleGroupService.assignRolesByName(userDetails, selections);
+			roleService.assignAuthoritiesByName(userDetails, selections);
 		}
 	}
 	
@@ -88,6 +90,20 @@ public class DemoFacadeImpl implements DemoFacade {
 			user.setFirstName("Simple");
 			user.setLastName("User");
 			String activationKey = userFacade.registerUser(user, username, true, null);
+			userFacade.activate(activationKey, username);		
+		}
+	}
+	
+	private void initBloggerInfo() {
+		String username = "blogger";
+		if (userFacade.getUserByUsername(username) == null) {
+			User user = userFacade.newUser();
+			
+			user.setUsername(username);
+			user.setEmail("blogger@test.com");
+			user.setFirstName("blogger");
+			user.setLastName("User");
+			String activationKey = userFacade.registerUser(user, username, true, null);
 			userFacade.activate(activationKey, username);
 			
 			UserDetails userDetails = userFacade.loadUserDetails(username);
@@ -95,7 +111,7 @@ public class DemoFacadeImpl implements DemoFacade {
 			selections.add(GallerySecurityAuthorities.ROLE_GALLERY_USER);
 			selections.add(BlogSecurityAuthorities.ROLE_BLOGGER);
 			
-			roleGroupService.assignRolesByName(userDetails, selections);		
+			roleService.assignAuthoritiesByName(userDetails, selections);		
 		}
 	}
 
