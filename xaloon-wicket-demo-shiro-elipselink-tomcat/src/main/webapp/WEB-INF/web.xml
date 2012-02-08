@@ -24,6 +24,9 @@
         	<param-name>config</param-name>
         	<param-value>
 				[main]
+				authcStrategy = org.xaloon.core.security.shiro.RethrowExceptionStrategy
+				securityManager.authenticator.authenticationStrategy = $authcStrategy
+				
 				authc.loginUrl = /login
 				customMatcher = org.xaloon.core.security.shiro.XaloonCredentialsMatcher
 				externalMatcher = org.xaloon.core.security.shiro.ExternalXaloonCredentialsMatcher
