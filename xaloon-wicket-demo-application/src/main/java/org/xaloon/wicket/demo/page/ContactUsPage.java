@@ -39,7 +39,7 @@ public class ContactUsPage extends LayoutWebPage {
 
 	@Override
 	protected Panel getContentPanel(String id, PageParameters pageParameters) {
-		return new MessagePanel(id);
+		return new MessagePanel(id, pageParameters);
 	}
 
 }
