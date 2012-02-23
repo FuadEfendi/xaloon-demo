@@ -40,7 +40,9 @@ import org.xaloon.wicket.component.security.AuthenticatedWebApplication;
 import org.xaloon.wicket.component.sitemap.SiteMap;
 import org.xaloon.wicket.demo.extended.JpaExtendedUser;
 import org.xaloon.wicket.demo.init.DemoFacade;
+import org.xaloon.wicket.plugin.blog.BlogUserListener;
 import org.xaloon.wicket.plugin.blog.rss.BlogRssFeed;
+import org.xaloon.wicket.plugin.image.plugin.GalleryUserListener;
 
 /**
  * @author vytautas r.
@@ -76,7 +78,7 @@ public class XaloonDemoApplication extends AuthenticatedWebApplication {
 	@Override
 	protected void onLoadConfiguration(Configuration config) {
 		// Add action before saving resource
-		Configuration.get().getResourceRepositoryListeners()
+		config.getResourceRepositoryListeners()
 				.add(new ResourceRepositoryListener() {
 					private static final long serialVersionUID = 1L;
 
@@ -93,8 +95,10 @@ public class XaloonDemoApplication extends AuthenticatedWebApplication {
 					}
 				});
 
-		Configuration.get().setBeanLocatorAdapter(
+		config.setBeanLocatorAdapter(
 				new SpringBeanLocatorAdapter());
+		config.getUserListenerCollection().add(new BlogUserListener());
+		config.getUserListenerCollection().add(new GalleryUserListener());
 	}
 
 	@Override
