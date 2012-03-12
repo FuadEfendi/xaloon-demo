@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>org.xaloon.profiles</groupId>  
 			<artifactId>xaloon-profiles-hibernate-spring</artifactId>
-			<version>${project.version}</version>
+			<version>${xaloon.version}</version>
 			<type>pom</type>
 		</dependency>		
 

@@ -17,32 +17,32 @@
 		<dependency>
 			<groupId>org.xaloon.core</groupId>
 			<artifactId>xaloon-core-jpa</artifactId>
-			<version>${project.version}</version>
+			<version>${xaloon.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.xaloon.wicket</groupId>
 			<artifactId>xaloon-wicket-components</artifactId>
-			<version>${project.version}</version>
+			<version>${xaloon.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.xaloon.wicket</groupId>
 			<artifactId>xaloon-wicket-components-resources</artifactId>
-			<version>${project.version}</version>
+			<version>${xaloon.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.xaloon.plugins</groupId>
 			<artifactId>xaloon-wicket-plugin-blog</artifactId>
-			<version>${project.version}</version>
+			<version>${xaloon.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.xaloon.plugins</groupId>
 			<artifactId>xaloon-wicket-plugin-google</artifactId>
-			<version>${project.version}</version>
+			<version>${xaloon.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.xaloon.plugins</groupId>
 			<artifactId>xaloon-wicket-plugin-authentication</artifactId>
-			<version>${project.version}</version>
+			<version>${xaloon.version}</version>
 		</dependency>
 		
 		<!-- Servlet -->

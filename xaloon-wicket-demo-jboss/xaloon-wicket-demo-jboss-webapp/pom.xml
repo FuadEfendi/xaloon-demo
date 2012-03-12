@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.xaloon.profiles</groupId>
 			<artifactId>xaloon-profiles-jee</artifactId>
-			<version>${project.version}</version>
+			<version>${xaloon.version}</version>
 			<type>pom</type>
 			<exclusions>
 				<exclusion>
