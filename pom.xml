@@ -1,20 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.xaloon.demo</groupId>
 	<artifactId>xaloon-wicket-demo-parent</artifactId>
 	<version>1.5.1-SNAPSHOT</version>
-	<packaging>pom</packaging>	
+	<packaging>pom</packaging>
 	<name>xaloon wicket demo folder</name>
 	<properties>
 		<jetty.version>7.5.0.v20110901</jetty.version>
-		<xaloon.version>1.5.1</xaloon.version>
+		<xaloon.version>1.5.2-SNAPSHOT</xaloon.version>
 	</properties>
 	<modules>
 		<module>xaloon-wicket-demo-application</module>
 		<module>xaloon-wicket-demo-jboss</module>
 		<module>xaloon-wicket-demo-glassfish</module>
-		<!--<module>xaloon-wicket-demo-shiro-elipselink-tomcat</module-->
-		<module>xaloon-wicket-demo-tomcat</module>			
+		<!--<module>xaloon-wicket-demo-shiro-elipselink-tomcat</module -->
+		<module>xaloon-wicket-demo-tomcat</module>
 	</modules>
 	<build>
 		<plugins>
@@ -36,7 +37,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<!-- Servlet -->
@@ -46,7 +47,7 @@
 				<version>2.5</version>
 				<scope>provided</scope>
 			</dependency>
-			
+
 			<!-- Logging -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -59,23 +60,23 @@
 				<version>1.6.1</version>
 			</dependency>
 		</dependencies>
-	</dependencyManagement>		
+	</dependencyManagement>
 	<repositories>
-   <repository>
-    <id>jboss-repository</id>
-    <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-   </repository>
-   <repository>
-    <id>EclipseLink Repo</id>
-    <url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo</url>
-   </repository>  
-   <repository> 
-    <id>googlecode-jqwicket</id> 
-    <url>http://jqwicket.googlecode.com/svn/m2-repo/releases/</url> 
-   </repository> 
-   <repository>
-    <id>mandubian-mvn</id>
-    <url>http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repository</url>
-   </repository>
-  </repositories>
+		<repository>
+			<id>jboss-repository</id>
+			<url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+		</repository>
+		<repository>
+			<id>EclipseLink Repo</id>
+			<url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo</url>
+		</repository>
+		<repository>
+			<id>googlecode-jqwicket</id>
+			<url>http://jqwicket.googlecode.com/svn/m2-repo/releases/</url>
+		</repository>
+		<repository>
+			<id>mandubian-mvn</id>
+			<url>http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repository</url>
+		</repository>
+	</repositories>
 </project>
