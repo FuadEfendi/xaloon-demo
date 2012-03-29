@@ -20,8 +20,6 @@ import javax.inject.Inject;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.injection.Injector;
-import org.apache.wicket.protocol.https.HttpsConfig;
-import org.apache.wicket.protocol.https.HttpsMapper;
 import org.apache.wicket.settings.IRequestCycleSettings.RenderStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +38,11 @@ import org.xaloon.wicket.component.security.AuthenticatedWebApplication;
 import org.xaloon.wicket.component.sitemap.SiteMap;
 import org.xaloon.wicket.demo.extended.JpaExtendedUser;
 import org.xaloon.wicket.demo.init.DemoFacade;
+import org.xaloon.wicket.demo.page.blog.DemoBlogEntryNoDatePage;
+import org.xaloon.wicket.demo.page.blog.DemoBlogEntryNoUserPage;
+import org.xaloon.wicket.demo.page.blog.DemoBlogEntryPage;
+import org.xaloon.wicket.plugin.blog.BlogConfigElement;
+import org.xaloon.wicket.plugin.blog.BlogPlugin;
 import org.xaloon.wicket.plugin.blog.rss.BlogRssFeed;
 
 /**
@@ -52,6 +55,9 @@ public class XaloonDemoApplication extends AuthenticatedWebApplication {
 	@Inject
 	private DemoFacade demoFacade;
 
+	@Inject 
+	private BlogPlugin blogPlugin;
+	
 	@Override
 	public Class<? extends Page> getHomePage() {
 		return org.xaloon.wicket.demo.page.IndexPage.class;
@@ -68,13 +74,17 @@ public class XaloonDemoApplication extends AuthenticatedWebApplication {
 		mountPage("/sitemap.xml", SiteMap.class);
 		mountPage("/blog-rss", BlogRssFeed.class);
 
-		setRootRequestMapper(new HttpsMapper(getRootRequestMapper(), new HttpsConfig(8080, 8443)));
+		//setRootRequestMapper(new HttpsMapper(getRootRequestMapper(), new HttpsConfig(8080, 8443)));
+		BlogConfigElement blogCfg = blogPlugin.getTechnicalConfiguration();
+		blogCfg.setBlogEntryNoDatePage(DemoBlogEntryNoDatePage.class);
+		blogCfg.setBlogEntryNoUserPage(DemoBlogEntryNoUserPage.class);
+		blogCfg.setDefaultBlogEntryPage(DemoBlogEntryPage.class);
 	}
 
 	@Override
 	protected void onLoadConfiguration(Configuration config) {
 		// Add action before saving resource
-		Configuration.get().getResourceRepositoryListeners().add(new ResourceRepositoryListener() {
+		config.getResourceRepositoryListeners().add(new ResourceRepositoryListener() {
 			private static final long serialVersionUID = 1L;
 
 			public void onBeforeSaveProperty(Plugin plugin, String propertyKey, Object value) {
@@ -87,7 +97,7 @@ public class XaloonDemoApplication extends AuthenticatedWebApplication {
 			}
 		});
 
-		Configuration.get().setBeanLocatorAdapter(new SpringBeanLocatorAdapter());
+		config.setBeanLocatorAdapter(new SpringBeanLocatorAdapter());
 	}
 
 	@Override

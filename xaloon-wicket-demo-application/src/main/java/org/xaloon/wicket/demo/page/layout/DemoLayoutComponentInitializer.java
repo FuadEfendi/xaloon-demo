@@ -35,6 +35,7 @@ import org.xaloon.wicket.demo.page.CruisesPage;
 import org.xaloon.wicket.demo.page.HotelsPage;
 import org.xaloon.wicket.demo.page.IndexPage;
 import org.xaloon.wicket.demo.panel.ChangeLocalePanel;
+import org.xaloon.wicket.demo.panel.sidebar.NavigationPanel;
 import org.xaloon.wicket.plugin.addthis.panel.AddThisPanel;
 import org.xaloon.wicket.plugin.blog.page.CreateBlogEntryPage;
 import org.xaloon.wicket.plugin.google.GoogleWebMasterMarkupContainer;
@@ -75,6 +76,11 @@ public class DemoLayoutComponentInitializer implements LayoutComponentInitialize
 			layoutWebPage.remove(WICKET_ID_SIDEBAR);
 		}
 
+		Panel sidebarPanel = layoutWebPage.getSidebarPanel(WICKET_ID_SIDEBAR);
+		if (sidebarPanel != null) {
+			layoutWebPage.add(sidebarPanel);
+			return;
+		}
 		// Take parent of this menu item as we want to display all menu of current level
 		TreeNode<MenuItem> parentMenuTreeItem = dynamicMenuFacade.getParent(layoutWebPage.getClass());
 		if (parentMenuTreeItem == null || isInIgnoreList(layoutWebPage)) {
@@ -84,7 +90,7 @@ public class DemoLayoutComponentInitializer implements LayoutComponentInitialize
 
 		// Do not duplicate root menu
 		if (parentMenuTreeItem.getParent() != null && parentMenuTreeItem.hasMoreThanOneChildren()) {
-			layoutWebPage.add(new DynamicMenuItemPanel(WICKET_ID_SIDEBAR, parentMenuTreeItem.getChildren()).setUseMenuDelimiter(false));
+			layoutWebPage.add(new NavigationPanel(WICKET_ID_SIDEBAR, parentMenuTreeItem.getChildren()));
 		} else {
 			layoutWebPage.add(new Label(WICKET_ID_SIDEBAR, new Model<String>("")).setVisible(false));
 		}
@@ -117,6 +123,10 @@ public class DemoLayoutComponentInitializer implements LayoutComponentInitialize
 	}
 
 	protected boolean hasSidebarMenu(LayoutWebPage layoutWebPage) {
+		//First check if there is custom sidebar panel for a selected page
+		if (layoutWebPage.getSidebarPanel(WICKET_ID_SIDEBAR) != null) {
+			return true;
+		}
 		if (isInIgnoreList(layoutWebPage)) {
 			return false;
 		}

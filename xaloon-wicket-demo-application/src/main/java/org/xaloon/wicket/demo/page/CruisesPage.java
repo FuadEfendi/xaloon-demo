@@ -37,5 +37,4 @@ public class CruisesPage extends TravelGroupPage {
 	protected Panel getContentPanel(String id, PageParameters pageParameters) {
 		return new CruisesPanel(id);
 	}
-
 }

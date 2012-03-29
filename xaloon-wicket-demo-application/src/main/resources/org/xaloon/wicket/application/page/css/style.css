@@ -713,6 +713,9 @@ div.slide-text {
 	list-style: none;
 }
 
+.blog-entry-list-sidebar {
+	border-bottom: 1px dotted #CCCCCC;
+}
 .separator {
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
