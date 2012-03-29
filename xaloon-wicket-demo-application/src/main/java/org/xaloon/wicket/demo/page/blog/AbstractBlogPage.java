@@ -2,8 +2,7 @@ package org.xaloon.wicket.demo.page.blog;
 
 import org.apache.wicket.markup.html.panel.Panel;
 import org.xaloon.wicket.application.page.LayoutWebPage;
-import org.xaloon.wicket.plugin.blog.panel.BlogEntryListTitlesPanel;
-import org.xaloon.wicket.plugin.blog.panel.BlogListOptions;
+import org.xaloon.wicket.demo.panel.sidebar.BlogSidebarPanel;
 
 public abstract class AbstractBlogPage extends LayoutWebPage {
 
@@ -17,7 +16,7 @@ public abstract class AbstractBlogPage extends LayoutWebPage {
 	@Override
 	public Panel getSidebarPanel(String wicketIdSidebar) {
 		if (sidebarPanel == null) {
-			sidebarPanel = new BlogEntryListTitlesPanel(wicketIdSidebar, new BlogListOptions().setMaxBlogEntriesCount(5));
+			sidebarPanel = new BlogSidebarPanel(wicketIdSidebar);
 		}
 		return sidebarPanel;
 	}
