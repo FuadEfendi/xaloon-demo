@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.xaloon.demo</groupId>
 	<artifactId>xaloon-wicket-demo-parent</artifactId>
-	<version>1.5.1-SNAPSHOT</version>
+	<version>1.6.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>xaloon wicket demo folder</name>
 	<properties>
