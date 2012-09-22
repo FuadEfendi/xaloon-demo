@@ -89,12 +89,6 @@
 			<version>2.2.0</version>
 		</dependency>
 		
-		<!-- jqWicket -->
-		<dependency>
-			<groupId>com.google.code.jqwicket</groupId>
-			<artifactId>jqwicket</artifactId>
-			<version>0.8</version>
-		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
