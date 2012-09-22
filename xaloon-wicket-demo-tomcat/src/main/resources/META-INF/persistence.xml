@@ -5,18 +5,16 @@
              version="2.0">
 	<persistence-unit name="default-persistence-unit">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<non-jta-data-source>java:comp/env/jdbc/xaloon</non-jta-data-source>
 		<class>org.xaloon.wicket.demo.extended.JpaExtendedUser</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.connection.url" value="jdbc:hsqldb:." />
-			<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
-			<property name="hibernate.connection.username" value="sa" />
-			<property name="hibernate.connection.password" value="" />
+			
 			<property name="hibernate.max_fetch_depth" value="0" />
 			
 			<property name="hibernate.generate_statistics" value="true"/>
