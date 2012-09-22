@@ -23,7 +23,6 @@ import org.apache.wicket.injection.Injector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wicketstuff.javaee.injection.JavaEEComponentInjector;
-import org.wicketstuff.shiro.authz.ShiroUnauthorizedComponentListener;
 import org.xaloon.core.api.config.Configuration;
 import org.xaloon.core.api.plugin.Plugin;
 import org.xaloon.core.api.plugin.resource.ResourceRepositoryListener;
@@ -31,7 +30,6 @@ import org.xaloon.core.api.user.model.User;
 import org.xaloon.wicket.component.inject.j2ee.WeldComponentInjector;
 import org.xaloon.wicket.component.inject.j2ee.WeldInjectorAdapter;
 import org.xaloon.wicket.component.security.AuthenticatedWebApplication;
-import org.xaloon.wicket.component.security.page.SignInPage;
 import org.xaloon.wicket.component.sitemap.SiteMap;
 import org.xaloon.wicket.demo.extended.JpaExtendedUser;
 import org.xaloon.wicket.demo.init.DemoFacade;
@@ -63,8 +61,8 @@ public class XaloonDemoApplication extends AuthenticatedWebApplication {
 		mountPage("/sitemap.xml", SiteMap.class);
 		mountPage("/blog-rss", BlogRssFeed.class);
 
-		getSecuritySettings().setUnauthorizedComponentInstantiationListener(
-			new ShiroUnauthorizedComponentListener(SignInPage.class, UnauthorizedPage.class, null));
+		//getSecuritySettings().setUnauthorizedComponentInstantiationListener(
+		//	new ShiroUnauthorizedComponentListener(SignInPage.class, UnauthorizedPage.class, null));
 	}
 
 	@Override

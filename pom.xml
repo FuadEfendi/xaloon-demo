@@ -17,9 +17,9 @@
 	</properties>
 	<modules>
 		<module>xaloon-wicket-demo-application</module>
-		<!--module>xaloon-wicket-demo-jboss</module>
-		<module>xaloon-wicket-demo-glassfish</module-->
-		<!--<module>xaloon-wicket-demo-shiro-elipselink-tomcat</module -->
+		<module>xaloon-wicket-demo-jboss</module>
+		<module>xaloon-wicket-demo-glassfish</module>
+		<module>xaloon-wicket-demo-shiro-elipselink-tomcat</module>
 		<module>xaloon-wicket-demo-tomcat</module>
 	</modules>
 	<build>

@@ -19,9 +19,10 @@ package org.xaloon.xipw.demo;
 import javax.inject.Inject;
 
 import org.apache.wicket.Page;
+import org.apache.wicket.Session;
 import org.apache.wicket.injection.Injector;
-import org.apache.wicket.protocol.https.HttpsConfig;
-import org.apache.wicket.protocol.https.HttpsMapper;
+import org.apache.wicket.request.Request;
+import org.apache.wicket.request.Response;
 import org.apache.wicket.settings.IRequestCycleSettings.RenderStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +38,7 @@ import org.xaloon.wicket.component.inject.spring.SpringBeanLocatorAdapter;
 import org.xaloon.wicket.component.mount.impl.SpringMountScanner;
 import org.xaloon.wicket.component.mount.impl.TrailingSlashPageMountingListener;
 import org.xaloon.wicket.component.security.AuthenticatedWebApplication;
+import org.xaloon.wicket.component.security.AuthenticatedWebSession;
 import org.xaloon.wicket.component.sitemap.SiteMap;
 import org.xaloon.wicket.demo.extended.JpaExtendedUser;
 import org.xaloon.wicket.demo.init.DemoFacade;
@@ -72,7 +74,7 @@ public class XaloonDemoApplication extends AuthenticatedWebApplication {
 		mountPage("/sitemap.xml", SiteMap.class);
 		mountPage("/blog-rss", BlogRssFeed.class);
 		
-		setRootRequestMapper(new HttpsMapper(getRootRequestMapper(), new HttpsConfig(8080, 8443)));
+		//setRootRequestMapper(new HttpsMapper(getRootRequestMapper(), new HttpsConfig(8080, 8443)));
 	}
 
 	@Override
@@ -119,5 +121,10 @@ public class XaloonDemoApplication extends AuthenticatedWebApplication {
 	protected void onAddMountScannerListener(SpringMountScanner scanner) {
 		super.onAddMountScannerListener(scanner);
 		scanner.addMountScannerListener(new TrailingSlashPageMountingListener());
+	}
+	
+	@Override
+	public Session newSession(Request request, Response response) {
+		return new AuthenticatedWebSession(request, false);
 	}
 }
